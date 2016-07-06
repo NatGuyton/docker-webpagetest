@@ -12,6 +12,7 @@ You will likely want to copy /var/www/html/settings out of your container and cu
 
 ## Run example:
 
+```
 docker run -d --name webpagetest -p 80:80 \
 	-v /local/webpagetest/settings:/var/www/html/settings \
 	-v /local/webpagetest/tmp:/var/www/html/tmp \
@@ -22,4 +23,5 @@ docker run -d --name webpagetest -p 80:80 \
 	-v /local/webpagetest/logs:/var/www/html/logs \
 	-v /local/webpagetest/httpd_logs:/var/log/httpd \
 	guyton/webpagetest
+```
 
