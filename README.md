@@ -1,4 +1,3 @@
-# docker-webpagetest
 ## WebPagetest Private Instance Version 2.19
 
 This is the server component of a private instance of WebPagetest.  You will also need to set up agents on test servers.  
@@ -10,7 +9,7 @@ References:
 
 You will likely want to copy /var/www/html/settings out of your container and customize, then mount into the container from either host directory or data container.
 
-## Run example:
+#### Run example:
 
 ```
 docker run -d --name webpagetest -p 80:80 \
