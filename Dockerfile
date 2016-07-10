@@ -6,6 +6,10 @@ RUN /usr/bin/perl -p -i -e 's/#ServerName www.example.com:80/ServerName webpaget
 # Get WebPageTest code
 RUN cd /tmp; wget -q https://github.com/WPO-Foundation/webpagetest/archive/WebPageTest-2.19.tar.gz ; cd /opt; tar zxf /tmp/WebPageTest-2.19.tar.gz ; \rm /tmp/WebPageTest-2.19.tar.gz ; mv webpagetest-WebPageTest-2.19/www/* /var/www/html/; \rm -fr webpagetest-WebPageTest-2.19
 
+# Add patches for setting to allow non FQDN hostnames
+COPY settings.ini.sample /var/www/html/settings/settings.ini.sample
+COPY runtest.php /var/www/html/runtest.php
+
 RUN cd /var/www/html ; mkdir -p tmp dat results work/jobs work/video logs; chown -R apache:apache tmp dat results work/jobs work/video logs 
 RUN cd /var/www/html/settings; for i in locations settings; do cp ${i}.ini.sample ${i}.ini; done
 # Put Native speed at top
